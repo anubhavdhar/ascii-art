@@ -30,10 +30,10 @@ class ReScale(object):
         '''
 
         # Write your code here
-        temp_im = image
-        temp_im.thumbnail((self.output_size, self.output_size))
-        return temp_im
-        
+        ratio = 1.0 * image.size[1] / image.size[0];
+        return image.resize((round(self.output_size), round(self.output_size * ratio)))
+
+
 
 # Image.open('../../../sample_imgs/flip.png');
 # image_resclaed = RescaleImage("0.25x")

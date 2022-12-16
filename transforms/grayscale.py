@@ -3,9 +3,6 @@
 from PIL import Image, ImageOps
 
 class GrayScale(object):
-    '''
-        Flips the image.
-    '''
             
     def __call__(self, image):
         '''
