@@ -14,7 +14,7 @@ Packages needed are:
 	<li> webbrowser
 </ul>
 
-You can run ```$ sudo bash setup.sh``` in most ubuntu (perhaps in other distro's as well) to install all necessary packages
+You can run ```$ bash setup.sh``` in most ubuntu (perhaps in other distro's as well) to install all necessary packages. This will ask for the super user password for installing tkinter and pup3.
 
 To run execute the command ```$ python3 AsciiArt.py```
 
