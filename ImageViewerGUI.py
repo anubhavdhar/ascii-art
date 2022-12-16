@@ -76,7 +76,7 @@ def process(clicked_size, output_text):
 	output_file_w.close()
 
 	output_file = open("output_file_black_bg.txt","r")
-	output_text.destroy()
+	output_text.grid_remove()
 	img_str = output_file.read()
 	scroll_bar = Scrollbar(root, orient = 'vertical')
 	scroll_bar.grid(row = 1, column = 4)
@@ -91,6 +91,9 @@ def process(clicked_size, output_text):
 	
 	output_text.grid(row = 1, column = 0, columnspan = 4)
 	output_file.close()
+
+	ExitButton = Button(root, text = "Exit Program", command = partial(exit))
+	ExitButton.grid(row = 0, column = 3)
 	# global picture2
 	# #decide based on the dropdown menu selection
 	# picture2 = PhotoImage(file="./final_image.png")
