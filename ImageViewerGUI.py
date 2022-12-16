@@ -109,8 +109,6 @@ if __name__ == '__main__':
 	####### CODE REQUIRED (START) ####### (2 lines)
 	# Instantiate the root window.
 	# Provide a title to the root window.
-
-
 	root = Tk();
 	root.title("Picture to Ascii converter | Python GUI | Anubhav Dhar")
 	####### CODE REQUIRED (END) #######
