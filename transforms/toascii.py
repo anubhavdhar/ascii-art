@@ -7,6 +7,7 @@ import matplotlib.image as pltim
 import scipy.misc
 
 
+# outputs ascii art with both black and white intended backgrounds
 def ToAscii(image, output_file_b, output_file_w):
 
 	original_img = np.copy(np.transpose(image, (0, 1)))
@@ -26,10 +27,5 @@ def ToAscii(image, output_file_b, output_file_w):
 		output_file_b.write('\n')
 		output_file_w.write('\n')
 
-
+	# returning the dimension
 	return (original_img.shape[0], original_img.shape[1] * 2);
-	# pltim.imsave(output, img)
-
-	# Write the required arguments
-	# The function should plot the predicted segmentation maps and the bounding boxes on the images and save them.
-	# Tip: keep the dimensions of the output image less than 800 to avoid RAM crashes.
