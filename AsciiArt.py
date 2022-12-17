@@ -92,11 +92,11 @@ def process(clicked_size, output_text, ent):
 	#Adusting font size to fit in the dimension
 	if dimensions[0] * 480 > dimensions[1] * 1000:
 		WIDTH = 1000
-		output_text = Text(root, bg = 'black', fg = 'white', height = dimensions[0], width = dimensions[1], font = ("Monospace", str(round(WIDTH / dimensions[0]))));
+		output_text = Text(root, bg = 'black', fg = 'white', height = dimensions[0], width = dimensions[1], font = ("Monospace", str(round(WIDTH / dimensions[0]))))
 		output_text.insert(END, img_str)
 	else:
 		HIEGHT = 480
-		output_text = Text(root, bg = 'black', fg = 'white', height = dimensions[0], width = dimensions[1], font = ("Monospace", str(round(HIEGHT/ dimensions[1]))));
+		output_text = Text(root, bg = 'black', fg = 'white', height = dimensions[0], width = dimensions[1], font = ("Monospace", str(round(HIEGHT/ dimensions[1]))))
 		output_text.insert(END, img_str)
 
 

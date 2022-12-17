@@ -42,7 +42,7 @@ def ToAsciiFiner(image, output_file_b, output_file_w):
 	"CCCCCCCCCCCCCCCCCCCCCCCCC"
 	"3333333333333333333333333"
 	"0000000000000000000000000"
-	"BBBBBBBBBBBBBBBBBBBBBBBBB"
+	"8888888888888888888888888"
 	"#########################"
 	
 	original_img = np.copy(np.transpose(image, (0, 1)))
