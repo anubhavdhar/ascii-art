@@ -11,6 +11,8 @@ Packages needed are:
 	<li> numpy
 	<li> tkinter
 	<li> os
+	<li> subprocess
+	<li> platform
 	<li> webbrowser
 </ul>
 

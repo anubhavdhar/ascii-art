@@ -10,9 +10,18 @@ from tkinter import *
 from functools import partial
 from tkinter import filedialog
 import PIL.Image as pilimg
-import os
+import subprocess, os, platform
 import webbrowser
 
+
+# Function to open output folder
+def open_folder(filepath):
+	if platform.system() == 'Darwin':       # macOS
+		subprocess.call(('open', filepath))
+	elif platform.system() == 'Windows':    # Windows
+		os.startfile(filepath)
+	else:                                   # linux variants
+		subprocess.call(('xdg-open', filepath))
 
 # Function for restarting code
 def Restart():
@@ -61,27 +70,25 @@ def process(clicked_size, output_text, ent):
 
 
 	#creating ascii outputs of both white and black background
-	output_file_b = open("output_file_black_bg.txt","w")
-	output_file_w = open("output_file_white_bg.txt","w")
+	output_file_b = open("./output_files/output_file_black_bg.txt","w")
+	output_file_w = open("./output_files/output_file_white_bg.txt","w")
 	dimensions = ToAscii(im_r, output_file_b, output_file_w);
 	output_file_b.close()
 	output_file_w.close()
 
 
 	#creating ascii outputs of both white and black background
-	output_file_finer_b = open("output_file_finer_black_bg.txt","w")
-	output_file_finer_w = open("output_file_finer_white_bg.txt","w")
+	output_file_finer_b = open("./output_files/output_file_finer_black_bg.txt","w")
+	output_file_finer_w = open("./output_files/output_file_finer_white_bg.txt","w")
 	dimensions = ToAsciiFiner(im_r, output_file_finer_b, output_file_finer_w);
 	output_file_finer_b.close()
 	output_file_finer_w.close()
 
 	#displying the black background picture on the GUI
-	output_file = open("output_file_finer_black_bg.txt","r")
+	output_file = open("./output_files/output_file_finer_black_bg.txt","r")
 	output_text.grid_remove()
 	img_str = output_file.read()
-	scroll_bar = Scrollbar(root, orient = 'vertical')
-	scroll_bar.grid(row = 1, column = 4)
-	
+
 	#Adusting font size to fit in the dimension
 	if dimensions[0] * 480 > dimensions[1] * 1000:
 		WIDTH = 1000
@@ -101,13 +108,22 @@ def process(clicked_size, output_text, ent):
 	RedoButton = Button(root, text = "Try Again", command = partial(Restart))
 	RedoButton.grid(row = 0, column = 3)
 
+	# changing select file button to webpage redirection button
+	web_file_button = Button(root, text = "Anubhav Dhar", command = partial(webbrowser.open_new_tab, "https://anubhavdhar.github.io"))
+	web_file_button.grid(row = 0, column = 1)
 
+	# changing to open to a folder 
+	select_file_button = Button(root, text = "Open Output Folder", command = partial(open_folder, "./output_files"))
+	select_file_button.grid(row = 0, column = 2)
+
+
+# Function for Ascii Art
 def AsciiArt():
 
 	# Creating the root tkinter GUI
 	global root
 	root = Tk()
-	root.title("Picture to Ascii converter | Python GUI | Anubhav Dhar")
+	root.title("Ascii Art | Python GUI | Anubhav Dhar")
 
 	# widget for output
 	output_text = Text(root)
@@ -141,13 +157,12 @@ def AsciiArt():
 	root.mainloop()
 	cleanup()
 
+# removing temporary files
 def cleanup():
-	# removing temporary files
 	if os.path.exists('./temp_images/original_image.png'):
 		os.remove('./temp_images/original_image.png')
 
 
 # Main function starts
 if __name__ == '__main__':
-
 	AsciiArt();
