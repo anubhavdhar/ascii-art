@@ -125,6 +125,9 @@ def AsciiArt():
 	root = Tk()
 	root.title("Ascii Art | Python GUI | Anubhav Dhar")
 
+	# set icon
+	root.iconphoto(False, PhotoImage(file = './icon.png'))
+
 	# widget for output
 	output_text = Text(root)
 
